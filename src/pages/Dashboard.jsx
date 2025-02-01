@@ -5,8 +5,15 @@ import RevenuePieChart from "../components/RevenuePieChart";
 import TopSongsBarChart from "../components/TopSongsBarChart";
 import StreamsTable from "../components/StreamsTable";
 import StreamifyContext from "../context/StreamifyContext";
+import LoadingSpinner from "./LoadingSpinner";
 
 const Dashboard = () => {
+    const { loading } = useContext(StreamifyContext);
+
+  if (loading) {
+    return <LoadingSpinner />; 
+  }
+  
   const {
     totalUsers,
     activeUsers,
