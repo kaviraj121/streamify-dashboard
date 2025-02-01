@@ -19,10 +19,10 @@ export const StreamifyProvider = ({ children }) => {
   }, []);
 
   const fetchData = async () => {
-    const { data: users } = await axios.get("http://localhost:3001/users");
-    const { data: streams } = await axios.get("http://localhost:3001/streams");
-    const { data: revenue } = await axios.get("http://localhost:3001/revenue");
-    const { data: artists } = await axios.get("http://localhost:3001/artists");
+    const { data: users } = await axios.get("https://dbdata-d6ao.onrender.com/users");
+    const { data: streams } = await axios.get("https://dbdata-d6ao.onrender.com/streams");
+    const { data: revenue } = await axios.get("https://dbdata-d6ao.onrender.com/revenue");
+    const { data: artists } = await axios.get("https://dbdata-d6ao.onrender.com/artists");
 
     setTotalUsers(users.length);
     setActiveUsers(users.filter((user) => user.isActive).length);
