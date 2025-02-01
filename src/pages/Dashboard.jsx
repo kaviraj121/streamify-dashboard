@@ -20,7 +20,7 @@ const Dashboard = () => {
   } = useContext(StreamifyContext);
 
   return (
-    <div className="p-6  bg-gray-900  min-h-screen font-roboto ">
+    <div className="p-6  bg-gray-900  min-h-screen  ">
       <h1 className="text-6xl text-white font-medium mb-6">Streamify Analytics Dashboard</h1>
 
       {/* Key Metrics Section */}
