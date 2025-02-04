@@ -2,8 +2,7 @@ import React, { useState } from "react";
 
 const StreamsTable = ({ streams }) => {
   const [sortConfig, setSortConfig] = useState({ key: null, direction: "asc" });
-  const [filter, setFilter] = useState("");
-  const [artistFilter, setArtistFilter] = useState("");
+  const [filter, setFilter] = useState(""); // Single filter for both song name and artist
 
   // Sorting logic
   const sortedStreams = [...streams].sort((a, b) => {
@@ -17,8 +16,8 @@ const StreamsTable = ({ streams }) => {
   // Filtering logic
   const filteredStreams = sortedStreams.filter(
     (stream) =>
-      stream.songName.toLowerCase().includes(filter.toLowerCase()) &&
-      stream.artist.toLowerCase().includes(artistFilter.toLowerCase())
+      stream.songName.toLowerCase().includes(filter.toLowerCase()) || // Filter by song name
+      stream.artist.toLowerCase().includes(filter.toLowerCase()) // Filter by artist
   );
 
   // Handle sorting
@@ -32,20 +31,13 @@ const StreamsTable = ({ streams }) => {
 
   return (
     <div>
-      {/* Search and Filter Inputs */}
-      <div className="flex flex-col sm:flex-row gap-4 mb-4 sm:gap-6">
+      {/* Single Search Input */}
+      <div className="mb-4">
         <input
           type="text"
-          placeholder="Search by song name"
+          placeholder="Search by song name or artist"
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
-          className="p-2 border rounded w-full sm:w-1/2"
-        />
-        <input
-          type="text"
-          placeholder="Filter by artist"
-          value={artistFilter}
-          onChange={(e) => setArtistFilter(e.target.value)}
           className="p-2 border rounded w-full sm:w-1/2"
         />
       </div>
