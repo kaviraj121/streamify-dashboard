@@ -20,39 +20,56 @@ const TopSongsBarChart = ({ topSongsData }) => {
 
   const options = {
     responsive: true,
+    maintainAspectRatio: false, 
     scales: {
       x: {
         ticks: {
-          color: "white", // X-axis label color
+          color: "white",
+          font: {
+            size: window.innerWidth <= 600 ? 10 : 12, 
+          },
         },
         grid: {
-          color: "rgba(255, 255, 255, 0.2)", // X-axis grid color
+          color: "rgba(255, 255, 255, 0.2)",
         },
       },
       y: {
         ticks: {
-          color: "white", // Y-axis label color
+          color: "white",
+          font: {
+            size: window.innerWidth <= 600 ? 10 : 12, 
+          },
         },
         grid: {
-          color: "rgba(255, 255, 255, 0.2)", // Y-axis grid color
+          color: "rgba(255, 255, 255, 0.2)",
         },
       },
     },
     plugins: {
       legend: {
         labels: {
-          color: "white", // Legend text color
+          color: "white",
+          font: {
+            size: window.innerWidth <= 600 ? 12 : 14, 
+          },
         },
       },
       title: {
         display: true,
         text: "Top 5 Streamed Songs (Last 30 Days)",
-        color: "white", // Title text color
+        color: "white",
+        font: {
+          size: window.innerWidth <= 600 ? 14 : 16, 
+        },
       },
     },
   };
 
-  return <Bar data={data} options={options} />;
+  return (
+    <div style={{ width: "100%", height: "400px", maxWidth: "800px", margin: "0 auto" }}>
+      <Bar data={data} options={options} />
+    </div>
+  );
 };
 
 export default TopSongsBarChart;
