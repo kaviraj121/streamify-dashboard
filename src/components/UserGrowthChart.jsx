@@ -23,34 +23,40 @@ const UserGrowthChart = ({ userGrowthData }) => {
   };
 
   const options = {
+    responsive: true, 
+    maintainAspectRatio: false, 
     scales: {
       x: {
         ticks: {
-          color: "white", // X-axis text color
+          color: "white", 
         },
         grid: {
-          color: "rgba(96, 165, 250, 1)", // X-axis grid lines (faint white)
+          color: "rgba(96, 165, 250, 1)",
         },
       },
       y: {
         ticks: {
-          color: "white", // Y-axis text color
+          color: "white", 
         },
         grid: {
-          color: "rgba(103,232,249,1)", // Y-axis grid lines (faint white)
+          color: "rgba(103,232,249,1)", 
         },
       },
     },
     plugins: {
       legend: {
         labels: {
-          color: "white", // Legend text color
+          color: "white", 
         },
       },
     },
   };
 
-  return <Line data={data} options={options} />;
+  return (
+    <div style={{ height: "300px", width: "100%" }}>
+      <Line data={data} options={options} />
+    </div>
+  );
 };
 
 export default UserGrowthChart;
